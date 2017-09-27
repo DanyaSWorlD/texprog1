@@ -4,6 +4,7 @@
 #include <iostream>
 #include <io.h>
 #include <vector>
+#include <locale>
 
 using namespace System;
 using namespace System::IO;
@@ -158,6 +159,7 @@ public:
 
 int main(array<System::String ^> ^args)
 {
+	setlocale(LC_ALL, "RUS");
 	FileIterator it = FileIterator();
 	while (it.HasNext())
 	{
