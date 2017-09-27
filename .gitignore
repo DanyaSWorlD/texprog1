@@ -2,3 +2,5 @@
 /.vs/*
 *.db
 *.opendb
+/x64/*
+/ipch/*
