@@ -4,3 +4,5 @@
 *.opendb
 /x64/*
 /ipch/*
+/TexProg1/Debug/*
+/TexProg1/x64/*

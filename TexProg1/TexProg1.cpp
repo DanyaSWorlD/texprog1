@@ -139,7 +139,7 @@ public:
 	dir d;
 	FileIterator()
 	{
-		std::string src = "E:\\torrent";
+		std::string src = "P:\\картинки";
 		d = dir(src);
 	};
 	//bool DataUsed = true;
@@ -162,7 +162,7 @@ int main(array<System::String ^> ^args)
 	while (it.HasNext())
 	{
 		Item i = it.Next();
-		std::cout << i.name.c_str() << " " << i.src.c_str() << "\r\n";
+		std::cout << i.name.c_str() << "\r\n" << i.src.c_str() << "\r\n\r\n";
 	}
 	system("pause");
 	return 0;
