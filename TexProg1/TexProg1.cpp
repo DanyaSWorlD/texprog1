@@ -1,6 +1,7 @@
 // texprog1clr.cpp: главный файл проекта.
 
 #include "stdafx.h"
+#include <iostream>
 #include <io.h>
 #include <vector>
 
@@ -49,14 +50,23 @@ public:
 
 	bool HasNext()
 	{
+		if (Child != 0)
+			if (Child->HasNext())
+				return Child->HasNext();
+
 		if (files.size() > 0)
 			return 1;
+		else
+			while (directories.size() > 0) {
+				std::string s = directories.at(0);
+				directories.erase(directories.begin());
+				Child = new dir(s);
+				Child->Parent = this;
+				if (Child->HasNext())
+					return true;
+			}
+		return false;
 
-		if (Child != 0)
-			if ((*Child).HasNext())
-				return 1;
-
-		return 0;
 	}
 private:
 	std::string GetPath(std::string path = "")
@@ -69,22 +79,33 @@ private:
 		return Path;
 	};
 
+	bool hasNext()
+	{
+		if (files.size() > 0)
+			return 1;
+
+		if (Child != 0)
+			if ((*Child).hasNext())
+				return 1;
+
+		return 0;
+	}
+
 	std::string GetNext()
 	{
 		if (Child != 0)
-			return (*Child).GetNext();
+			if (Child->hasNext())
+				return Child->GetNext();
 
 		while (directories.size() > 0)
 		{
 			std::string s = directories.at(0);
 			directories.erase(directories.begin());
 			//Child = (dir*)malloc(sizeof(dir));
-			dir d = dir(s);
-			Child = &d;
-			(*Child) = d;
-			(*Child).Parent = this;
-			if ((*Child).HasNext())
-				return (*Child).GetNext();
+			Child = new dir(s);
+			Child->Parent = this;
+			if (Child->hasNext())
+				return Child->GetNext();
 			else
 				deleteChild();
 		}
@@ -101,6 +122,7 @@ private:
 
 	void deleteChild()
 	{
+		delete Child;
 		Child = 0;
 	}
 };
@@ -117,12 +139,7 @@ public:
 	dir d;
 	FileIterator()
 	{
-		std::string src = "E:\\torrent\\Prey  by xatab";
-
-		if (src.find("//") != -1)
-			src.replace(src.find("//"), 2, "\\");
-		if (src.find("/") != -1)
-			src.replace(src.find("/"), 1, "\\");
+		std::string src = "E:\\torrent";
 		d = dir(src);
 	};
 	//bool DataUsed = true;
@@ -144,8 +161,9 @@ int main(array<System::String ^> ^args)
 	FileIterator it = FileIterator();
 	while (it.HasNext())
 	{
-		std::string name = it.Next().name;
-		printf("%s\r\n", name);
+		Item i = it.Next();
+		std::cout << i.name.c_str() << " " << i.src.c_str() << "\r\n";
 	}
+	system("pause");
 	return 0;
 }

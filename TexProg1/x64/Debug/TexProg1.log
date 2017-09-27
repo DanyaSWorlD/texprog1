@@ -1,5 +1,4 @@
 ﻿  TexProg1.cpp
-TexProg1.cpp(148): warning C4477: "printf": в строке форматирования "%s" требуется аргумент типа "char *", но вариативный аргумент "1" имеет тип "std::string"
   AssemblyInfo.obj : /DEBUG:FASTLINK не поддерживается, если присутствует управляемый код; выполняется перезапуск компоновки с /DEBUG:FULL
   TexProg1.vcxproj -> E:\Documents\projects\texprog1\x64\Debug\TexProg1.exe
   TexProg1.vcxproj -> E:\Documents\projects\texprog1\x64\Debug\TexProg1.pdb (Partial PDB)
