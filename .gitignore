@@ -1,8 +1,8 @@
-/Debug/*
-/.vs/*
+Debug/*
+.vs/*
 *.db
 *.opendb
-/x64/*
-/ipch/*
-/TexProg1/Debug/*
-/TexProg1/x64/*
+x64/*
+ipch/*
+TexProg1/Debug/*
+TexProg1/x64/*
