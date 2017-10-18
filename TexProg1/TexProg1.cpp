@@ -22,13 +22,9 @@ public:
 
 class dir {
 public:
-	dir* Parent = 0;
-	dir* Child = 0;
-	bool created;
-	std::string Path;
-	std::vector<std::string> directories;
-	std::vector<std::string> files;
+
 	dir() {};
+
 	dir(std::string path) {
 		created = true;
 		Path = path;
@@ -67,18 +63,16 @@ public:
 					return true;
 			}
 		return false;
-
 	}
+
 private:
-	std::string GetPath(std::string path = "")
-	{
-		//if (Parent != 0)
-			//path = (*Parent).GetPath(path) + '/' + Path + path;
-		//else
-			//return Path;
-		//return path;
-		return Path;
-	};
+	dir* Parent = 0;
+	dir* Child = 0;
+	bool created;
+	std::string Path;
+	std::vector<std::string> directories;
+	std::vector<std::string> files;
+	std::string GetPath(std::string path = "") { return Path; };
 
 	bool hasNext()
 	{
@@ -128,13 +122,7 @@ private:
 	}
 };
 
-/*class Iterator
-{
-	virtual bool HasNext();
-	virtual Item Next();
-};*/
-
-class FileIterator //: Iterator
+class FileIterator
 {
 public:
 	dir d;
@@ -143,16 +131,12 @@ public:
 		std::string src = "P:\\картинки";
 		d = dir(src);
 	};
-	//bool DataUsed = true;
 	bool HasNext()
 	{
-		//if (DataUsed == false)
-		//return true;
 		return d.HasNext();
 	}
 	Item Next()
 	{
-		//DataUsed = true;
 		return d.getFile();
 	}
 };

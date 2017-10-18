@@ -1,4 +1,8 @@
 ﻿  TexProg1.cpp
+TexProg1.cpp(3): warning C4005: __CLR_VER: изменение макроопределения
+  TexProg1.cpp(3): note: аргументы командной строки:  см. предыдущее определение "__CLR_VER"
+TexProg1.cpp(3): warning C4651: параметр "/D__CLR_VER=40702110" указан для предкомпилированного заголовка, но не для текущей компиляции
+  .NETFramework,Version=v4.5.2.AssemblyAttributes.cpp
   AssemblyInfo.obj : /DEBUG:FASTLINK не поддерживается, если присутствует управляемый код; выполняется перезапуск компоновки с /DEBUG:FULL
   TexProg1.vcxproj -> E:\Documents\projects\texprog1\x64\Debug\TexProg1.exe
   TexProg1.vcxproj -> E:\Documents\projects\texprog1\x64\Debug\TexProg1.pdb (Partial PDB)
